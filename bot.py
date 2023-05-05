@@ -9,9 +9,17 @@ bot = TeleBot(TOKEN, parse_mode='HTML', threaded=True, num_threads=4, colorful_l
 
 @bot.message_handler(commands=['start', 'help'])
 def start(message:Message):
-    bot.reply_to(message, "WT")
+    bot.reply_to(message, """""")
 
+
+@bot.message_handler(regexp=f'\b((?:https?)://[^\s/$.?#].[^\s]*)\b')
+def url_handler(message:Message):
+    pass
 
 
 print('Running...')
 bot.infinity_polling(restart_on_change=True)
+
+
+# TODO:
+#   1. Create the parent class
